@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>SSAR Beats | Southside Arts Recording</title>
+  <meta name="description" content="Pick your beat before you book the booth. Listen to beats from Southside Arts Recording, reserve the one you want, then come in and record.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="SSAR Beats">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#beats">Skip to beats</a>
+  <div class="bg" id="bg" aria-hidden="true"></div>
+
+  <header class="top glass">
+    <a class="brand" href="#" aria-label="Southside Arts Recording, home">
+      <span class="brand-mark">SSAR</span>
+      <span class="brand-name">Southside Arts Recording</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#beats">Beats</a>
+      <a href="#how">How it works</a>
+      <a href="#remake">Remakes</a>
+    </nav>
+    <button class="install-btn" id="install" type="button" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4.5-4.5M12 14 7.5 9.5M5 19h14"/></svg>
+      <span>Save app</span>
+    </button>
+    <button class="cart-btn" id="open-cart" type="button">
+      My order <span class="count" id="cart-count" aria-label="beats in order">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><i></i>Zambian sounds, cooked in house</p>
+        <h1>Pick your <span class="grad">beat</span> before you book the <span class="grad">booth.</span></h1>
+        <p class="lede">Listen here, reserve the one that fits your song, then walk into Southside Arts Recording ready to record.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#beats">Browse beats</a>
+          <a class="btn" href="#remake">Need a beat remade?</a>
+        </div>
+        <ul class="facts">
+          <li><strong id="fact-count">0</strong><span>beats in the crate</span></li>
+          <li><strong><span data-preview></span>s</strong><span>preview on every beat</span></li>
+          <li><strong>1 tap</strong><span>to order on WhatsApp</span></li>
+        </ul>
+      </div>
+      <div class="deck" id="deck" aria-label="Featured beat"></div>
+    </section>
+
+    <section class="section wrap" id="beats">
+      <div class="section-head">
+        <h2>The crate</h2>
+        <p>Pick a sound, then dig in. Every preview is <span data-preview></span> seconds.</p>
+      </div>
+      <div class="shelves" id="genres" role="group" aria-label="Genres"></div>
+      <div class="toolbar">
+        <label class="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+          <input id="search" type="search" placeholder="Search every beat by title, key or tempo" aria-label="Search beats" autocomplete="off">
+        </label>
+        <label class="sort">
+          <span class="sr">Sort beats</span>
+          <select id="sort">
+            <option value="title">Title, A to Z</option>
+            <option value="slow">Tempo, slow to fast</option>
+            <option value="fast">Tempo, fast to slow</option>
+          </select>
+        </label>
+      </div>
+      <div class="list glass" id="beat-list"></div>
+      <a class="more-row glass" href="#remake">
+        <span class="more-plus" aria-hidden="true">+</span>
+        <span><strong>Did not find your sound?</strong> Bring a song you like and the studio can remake the beat for your session.</span>
+        <span class="btn small">Ask for a remake</span>
+      </a>
+    </section>
+
+    <section class="section wrap" id="how">
+      <div class="section-head">
+        <h2>How it works</h2>
+      </div>
+      <ol class="steps">
+        <li class="glass">
+          <span class="step-n">01</span>
+          <h3>Listen</h3>
+          <p>Play the previews on your phone, anywhere. Find the one your song belongs on.</p>
+        </li>
+        <li class="glass">
+          <span class="step-n">02</span>
+          <h3>Reserve</h3>
+          <p>Add it to your order and send it to the studio on WhatsApp. They confirm the price with you.</p>
+        </li>
+        <li class="glass">
+          <span class="step-n">03</span>
+          <h3>Record</h3>
+          <p>Come to the booth with your beat already sorted. All your studio time goes into the song.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section wrap" id="remake">
+      <div class="remake glass">
+        <div class="remake-copy">
+          <h2>Got a beat off the <span class="grad">internet?</span></h2>
+          <p>Downloaded beats usually have to be rebuilt before you can record on them properly. Send us the song and we remake it clean, ready for your session.</p>
+        </div>
+        <form class="form" id="remake-form">
+          <label>Song or link
+            <input name="song" required autocomplete="off" placeholder="Song name, or paste a link">
+          </label>
+          <label><span>Your WhatsApp number <span class="opt">Optional, so the studio can reach you</span></span>
+            <input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="097...">
+          </label>
+          <input class="trap" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label><span>What should change? <span class="opt">Optional</span></span>
+            <textarea name="details" rows="3" placeholder="Faster, different drums, same vibe..."></textarea>
+          </label>
+          <button class="btn primary" type="submit">Request a remake on WhatsApp</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <aside class="wrap promo-wrap" aria-label="From our partner">
+    <a class="promo" href="https://songchainn.xyz" target="_blank" rel="noopener">
+      <span class="promo-row">
+        <img class="promo-logo" src="partner/songchainn.png" alt="" width="64" height="64" loading="lazy">
+        <span class="promo-copy">
+          <span class="promo-name">$ONGCHAINN</span>
+          <strong>Get your music heard.</strong>
+          <span>Distribute and engage with fans on $ONGCHAINN.</span>
+          <span class="promo-perks"><i>Keep 100% of your royalties</i><i>Paid straight to your wallet</i><i>Free to release</i></span>
+        </span>
+        <span class="promo-cta">Release your music <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m0 0-6-6m6 6-6 6"/></svg></span>
+      </span>
+      <span class="promo-artists" id="sc-artists" hidden></span>
+    </a>
+  </aside>
+
+  <footer class="foot wrap">
+    <span class="brand-mark">SSAR</span>
+    <p>Southside Arts Recording. Beats made in house.</p>
+  </footer>
+
+  <nav class="tabbar" aria-label="App">
+    <a href="#top" data-tab="top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/></svg>Home</a>
+    <a href="#beats" data-tab="beats"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg>Beats</a>
+    <a href="#remake" data-tab="remake"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3L20 9M20 4v5h-5M20 12a8 8 0 0 1-14 5.3L4 15M4 20v-5h5"/></svg>Remakes</a>
+    <button type="button" id="tab-order"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 13H7zM9 7a3 3 0 0 1 6 0"/></svg>Order<span class="count" id="tab-count" hidden>0</span></button>
+  </nav>
+
+  <div class="player glass" id="player" hidden>
+    <div class="thumb" id="player-thumb"></div>
+    <div class="player-info">
+      <strong id="player-title"></strong>
+      <span id="player-specs"></span>
+    </div>
+    <button class="play small" id="player-toggle" type="button" aria-label="Pause"></button>
+    <canvas class="wave" id="player-wave" data-wave="" role="slider" tabindex="0" aria-label="Seek in preview" aria-valuemin="0" aria-valuemax="60" aria-valuenow="0"></canvas>
+    <span class="player-time" id="player-time">0:00</span>
+    <button class="btn small" id="player-add" type="button">Add to order</button>
+  </div>
+
+  <dialog class="drawer" id="cart" aria-labelledby="cart-title">
+    <div class="drawer-head">
+      <h2 id="cart-title">My order</h2>
+      <button class="icon-btn" id="close-cart" type="button" aria-label="Close order">&times;</button>
+    </div>
+    <ul class="cart-items" id="cart-items"></ul>
+    <p class="cart-empty" id="cart-empty">No beats yet. Add one and it shows up here.</p>
+    <form class="form" id="order-form">
+      <p class="cart-total" id="cart-total"></p>
+      <label>Your artist name
+        <input name="name" required autocomplete="name">
+      </label>
+      <label><span>Your WhatsApp number <span class="opt">Optional, so the studio can reach you</span></span>
+        <input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="097...">
+      </label>
+      <input class="trap" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="check">
+        <input type="checkbox" name="session" id="want-session">
+        I also want to book a recording session
+      </label>
+      <label id="session-date" hidden>Day that works for you
+        <input type="date" name="date">
+      </label>
+      <label><span>Anything the studio should know? <span class="opt">Optional</span></span>
+        <textarea name="note" rows="2"></textarea>
+      </label>
+      <button class="btn primary" type="submit" id="order-send">Send order on WhatsApp</button>
+      <p class="form-note" id="order-note" role="status"></p>
+    </form>
+  </dialog>
+
+  <dialog class="sheet" id="install-help" aria-labelledby="install-title">
+    <h2 id="install-title">Save SSAR Beats to your phone</h2>
+    <ol>
+      <li>Tap the <strong>Share</strong> button in your browser.</li>
+      <li>Choose <strong>Add to Home Screen</strong>.</li>
+      <li>Tap <strong>Add</strong>. The app icon lands on your home screen.</li>
+    </ol>
+    <button class="btn primary" id="install-close" type="button">Got it</button>
+  </dialog>
+
+  <script src="data/beats.js"></script>
+  <script src="data/peaks.js"></script>
+  <script src="data/env.js"></script>
+  <script src="data/songchainn.js"></script>
+  <script src="art.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
