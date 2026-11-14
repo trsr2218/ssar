@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>SSAR covers</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .sheet-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; padding: 20px; }
+    .sheet-grid figure { margin: 0; }
+    .sheet-grid svg { display: block; width: 100%; border-radius: 10px; }
+    .sheet-grid figcaption { font-size: 13px; color: var(--muted); padding-top: 4px; }
+  </style>
+</head>
+<body>
+  <div class="sheet-grid" id="grid"></div>
+  <script src="data/beats.js"></script>
+  <script src="data/peaks.js"></script>
+  <script src="art.js"></script>
+  <script>
+    document.getElementById('grid').innerHTML = SSAR.beats.map(b => `<figure>${SSAR_ART(b, SSAR_PEAKS[b.id])}<figcaption>${b.title}, ${b.genre}</figcaption></figure>`).join('')
+  </script>
+</body>
+</html>
